@@ -126,3 +126,10 @@ allow them to be easily changed.*/
   border-right-color: var(--border-right-color);
   border-bottom-color: var(--border-bottom-color);
 }
+
+/* Next Block */
+.next-block {
+  display: grid;
+  grid-template-columns: repeat(4, var(--tile-size));
+  align-self: flex-start;
+}
