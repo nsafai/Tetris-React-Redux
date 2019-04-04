@@ -8,6 +8,7 @@ class NextBlock extends Component {
     const box = [[0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0]]
     // Map the block to the grid
     return box.map((rowArray, row) => {
+      // console.log(rowArray, row)
       return rowArray.map((square, col) => {
         return <GridSquare key={`${row}${col}`} color={0} />
       })})
@@ -23,6 +24,3 @@ class NextBlock extends Component {
 }
 
 export default NextBlock
-
-
-[11,22,33,44].map((thing, i, arr) => { return thing * 2 })
