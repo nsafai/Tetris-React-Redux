@@ -28,8 +28,8 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 ## Credits
 
-This project was largely inspired from [this Make School tutorial](https://www.makeschool.com/academy/track/standalone/react-redux-tetris-app-tutorial-o4s/)
+This project was largely inspired from [this Make School tutorial](https://www.makeschool.com/academy/track/react-redux-tetris-app-tutorial-o4s)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started)
