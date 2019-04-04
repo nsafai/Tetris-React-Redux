@@ -85,13 +85,34 @@ body {
 .App-header {
   background-color: #282c34;
   min-height: 10vh;
-
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+}
+
+/* Grid Board */
+/* tells the browser to calculate the size boxes to 
+include the border width rather than adding the border, 
+which is the default */
+* {
+  box-sizing: border-box;
+}
+
+/* Grid Board - This defines the `grid-board` to display 
+as `grid`. This causes the children of this element to arrange 
+on a grid. The number of columns is set by `--cols` var and 
+the width of each column is set by `--tile-size`. 
+
+These two CSS custom properties are defined in `:root` which 
+allow them to be easily changed.*/
+.grid-board {
+  display: grid;
+  grid-template-columns: repeat(var(--cols), var(--tile-size));
+  grid-gap: 0;
+  align-self: flex-start;
 }
 
 /* Grid Square */
