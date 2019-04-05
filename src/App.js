@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import GridBoard from './components/grid-board'
 import NextBlock from './components/next-block'
 import ScoreBoard from './components/score-board'
+import Controls from './components/controls'
 
 class App extends Component {
   render() {
@@ -13,6 +14,7 @@ class App extends Component {
         <GridBoard />
         <NextBlock />
         <ScoreBoard />
+        <Controls />
       </div>
     );
   }
