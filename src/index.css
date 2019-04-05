@@ -81,8 +81,56 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/****** GRID ******/
+/* App */
+.App {
+  --col-side: calc(var(--tile-size) * 4);
+  --col-center: calc(var(--tile-size) * 10);
+  --grid-height: calc(var(--tile-size) * 18);
+
+  width: calc(var(--tile-size) * (4 + 1 + 10 + 1 + 4));
+  margin: auto;
+  display: grid;
+
+  grid-gap: var(--tile-size) var(--tile-size);
+  /* Defines three columns of `--col-side`, `--col-center`, and `--col-side` widths. */
+  grid-template-columns: var(--col-side) var(--col-center) var(--col-side);
+  /* Defines three rows of `100px`, `--grid-height`, and 100px. */
+  grid-template-rows: 100px var(--grid-height) 100px;
+
+/* This defines the areas on the grid with names: 'h', 'l', 'c', 'r',
+and 'b'. The '.' represents an empty cell on the grid. */
+  grid-template-areas: "h h h"
+                       "l c r"
+                       ". b .";
+}
+
+/* App */
+.App {
+  --col-side: calc(var(--tile-size) * 4);
+  --col-center: calc(var(--tile-size) * 10);
+  --grid-height: calc(var(--tile-size) * 18);
+
+  width: calc(var(--tile-size) * (4 + 1 + 10 + 1 + 4));
+  margin: auto;
+  display: grid;
+
+  grid-gap: var(--tile-size) var(--tile-size);
+  /* Defines three columns of `--col-side`, `--col-center`, and `--col-side` widths. */
+  grid-template-columns: var(--col-side) var(--col-center) var(--col-side);
+  /* Defines three rows of `100px`, `--grid-height`, and 100px. */
+  grid-template-rows: 100px var(--grid-height) 100px;
+
+  /* This defines the areas on the grid with names: 'h', 'l', 'c', 'r',
+  and 'b'. The '.' represents an empty cell on the grid. */
+  grid-template-areas: "h h h"
+                       "l c r"
+                       ". b .";
+}
+
 /* App Header */
 .App-header {
+  grid-area: h;
   background-color: #282c34;
   min-height: 10vh;
   display: flex;
@@ -113,6 +161,7 @@ allow them to be easily changed.*/
   grid-template-columns: repeat(var(--cols), var(--tile-size));
   grid-gap: 0;
   align-self: flex-start;
+  grid-area: c; /* Assign to grid area c */
 }
 
 /* Grid Square */
@@ -132,9 +181,14 @@ allow them to be easily changed.*/
   display: grid;
   grid-template-columns: repeat(4, var(--tile-size));
   align-self: flex-start;
+  grid-area: l; /* Grid area l left column */
 }
 
 /* Score Board */
+.score-board {
+  grid-area: r;
+}
+
 .score-board-button {
   padding: 0;
   display: block;
