@@ -132,7 +132,6 @@ and 'b'. The '.' represents an empty cell on the grid. */
 .App-header {
   grid-area: h;
   background-color: #282c34;
-  min-height: 10vh;
   display: flex;
   flex-direction: column;
   align-items: center;
