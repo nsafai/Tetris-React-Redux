@@ -6,21 +6,6 @@ class ScoreBoard extends Component {
 
   render() {
     const { isRunning, score, resume, pause, restart, gameOver } = this.props
-    const buttonTxt = 'Pause'
-
-    if (isRunning) {
-      buttonTxt = 'Pause'
-    } else {
-      buttonTxt = 'Play'
-    }
-
-    if (gameOver == false) {
-      return
-    } else {
-      if (isRunning) {
-
-      }
-    }
 
     return (
       <div className="score-board">
