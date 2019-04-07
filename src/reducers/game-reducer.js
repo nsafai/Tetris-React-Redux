@@ -54,7 +54,6 @@ const gameReducer = (state = defaultState(), action) => {
       newState.nextShape = randomShape()
       newState.score = score
       newState.isRunning = isRunning
-
       // if there's no space to add next shape, game over
       if (!canMoveTo(nextShape, newGrid, 0, 4, 0)) {
         // Game Over
@@ -62,20 +61,15 @@ const gameReducer = (state = defaultState(), action) => {
         newState.shape = 0
         return { ...state, gameOver: true }
       }
-
       // Update the score based on if rows were completed or not
       newState.score = score + checkRows(newGrid)
-
       return newState
-      // return state
 
     case RESUME:
-
-      return state
+      return { ...state, isRunning: true }
 
     case PAUSE:
-
-      return state
+      return { ...state, isRunning: false }
 
     case GAME_OVER:
 
