@@ -8,6 +8,12 @@ import { shapes } from '../utils'
 
 // Represents a 10 x 18 grid of grid squares
 class GridBoard extends Component {
+  constructor(props) {
+    super(props)
+
+    this.lastUpdateTime = 0 // the time of last update
+    this.progressTime = 0 // amount of time since the last update.
+  }
 
   // generates an array of 18 rows, each containing 10 GridSquares.
   makeGrid() {
@@ -40,6 +46,39 @@ class GridBoard extends Component {
               </GridSquare>
       })
     })
+  }
+
+  // Handle game updates
+  update(time) {
+    // If the game is is running we want to request a callback at the next animation frame.
+    window.requestAnimationFrame(this.update.bind(this))
+    if (!this.props.isRunning) {
+      return
+    }
+
+    // If lastUpdateTime not been set, set it to the current time.
+    if (!this.lastUpdateTime) {
+      this.lastUpdateTime = time
+    }
+
+    // Calculate delta time and progress time
+    const deltaTime = time - this.lastUpdateTime
+    this.progressTime += deltaTime
+
+    // If the progress time is greater than speed move the block down
+    if (this.progressTime > this.props.speed) {
+      this.props.moveDown()
+      this.progressTime = 0
+    }
+
+    // set the last update time.
+    this.lastUpdateTime = time
+  }
+
+  // requestAnimationFrame() takes a callback and only calls it once. 
+  // So you need to make the first call to requestAnimationFrame() in componentDidMount().
+  componentDidMount() {
+    window.requestAnimationFrame(this.update.bind(this))
   }
 
   // The components generated in makeGrid are rendered in div.grid-board

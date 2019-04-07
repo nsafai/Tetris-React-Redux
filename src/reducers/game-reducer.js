@@ -62,11 +62,12 @@ const gameReducer = (state = defaultState(), action) => {
         newState.shape = 0
         return { ...state, gameOver: true }
       }
+
       // Update the score based on if rows were completed or not
       newState.score = score + checkRows(newGrid)
 
       return newState
-      return state
+      // return state
 
     case RESUME:
 
