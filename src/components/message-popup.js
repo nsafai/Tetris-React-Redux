@@ -1,11 +1,13 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { restart } from '../actions'
 
 // Displays a message
 class MessagePopup extends Component {
   
   render() {
-    const { isRunning, gameOver } = this.props
+    const { isRunning, gameOver, restart } = this.props
+    
     let popupTitle = ''
     let popupMsg = ''
     let isHidden = 'hidden'
@@ -33,6 +35,9 @@ class MessagePopup extends Component {
       <div className={`message-popup ${isHidden}`}>
         <h1>{popupTitle}</h1>
         <p>{popupMsg}</p>
+        <button className={`message-popup-rs-btn score-board-button ${isHidden}`} onClick={(e) => {
+          restart()
+        }}>Try Again</button>
       </div>
     )
   }
@@ -46,7 +51,9 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = () => {
-  return { }
+  return {
+    restart
+  }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps())(MessagePopup)
