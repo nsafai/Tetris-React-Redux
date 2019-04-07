@@ -54,4 +54,3 @@ const mapDispatchToProps = () => {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps())(Controls)
-// export default Controls

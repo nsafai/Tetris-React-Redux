@@ -50,4 +50,3 @@ const mapDispatchToProps = () => {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps())(MessagePopup)
-// export default MessagePopup
