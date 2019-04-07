@@ -33,8 +33,13 @@ Why?
   --tile-size: 20px for example will set size of the grid squares. */
   --cols: 10;
   --rows: 18;
-  --tile-size: 20px;
+  --tile-size: calc(75vh / 20);
   --border-width: 5px;
+}
+
+@font-face {
+  font-family: 'Tetris';
+  src: local('Tetris'), url(./fonts/Tetris.ttf) format('truetype');
 }
 
 /* Colors */
@@ -74,9 +79,8 @@ Why?
 body {
   margin: 0;
   padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  font-family:  "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", 
+                "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -132,11 +136,14 @@ and 'b'. The '.' represents an empty cell on the grid. */
 .App-header {
   grid-area: h;
   background-color: #282c34;
+  font-family: "Tetris";
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  padding-top: 0.5em;
+  /* font-size: calc(10px + 2vmin); */
+  font-size: 1.5em;
   color: white;
 }
 
@@ -186,12 +193,22 @@ allow them to be easily changed.*/
 /* Score Board */
 .score-board {
   grid-area: r;
+  display: flex;
+  flex-direction: column;
+  font-size: 1.5em;
+}
+
+.score-board-text {
+  font-weight: bold;
+  margin-bottom: 1em;
 }
 
 .score-board-button {
-  padding: 0;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
   display: block;
   padding: 1em;
+  font-size: 1em;
   border-width: 5px;
   border-top-color: var(--button-color-t);
   border-left-color: var(--button-color-l);
@@ -228,10 +245,25 @@ allow them to be easily changed.*/
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  width: calc(var(--tile-size) * 10);
-  height: calc(var(--tile-size) * 10);
-  background-color: rgba(255, 118, 0, 0.5);
+  width: calc(var(--tile-size) * 20);
+  height: calc(var(--tile-size) * 15);
+  background-color: rgba(255, 118, 0, 0.8);
+  color: white;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.message-popup-title {
+  font-size: 4em;
+  margin-bottom: 0.25em;
+}
+
+.message-popup-text {
+  font-size: 1.5em;
+  margin-top: 0;
 }
 
 /* This style is applied only when the message popup container
@@ -242,6 +274,9 @@ case the Message Popup is not displayed */
 }
 
 .message-popup-rs-btn {
+  margin-top: 1.5em;
   margin-left: auto;
   margin-right: auto;
+  padding: 1.5em 2.5em;
+  font-size: 1em;
 }

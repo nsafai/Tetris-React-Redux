@@ -19,7 +19,7 @@ class App extends Component {
       <Provider store={store}>
         <div className="App">
           <header className="App-header">
-            <h1 className="App-title">Tetris</h1>
+            <h1 className="App-title">T</h1>
           </header>
           <GridBoard />
           <NextBlock />

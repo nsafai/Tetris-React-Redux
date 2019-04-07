@@ -33,8 +33,8 @@ class MessagePopup extends Component {
 
     return (
       <div className={`message-popup ${isHidden}`}>
-        <h1>{popupTitle}</h1>
-        <p>{popupMsg}</p>
+        <h1 className="message-popup-title">{popupTitle}</h1>
+        <p className="message-popup-text">{popupMsg}</p>
         <button className={`message-popup-rs-btn score-board-button ${isHidden}`} onClick={(e) => {
           restart()
         }}>Try Again</button>
