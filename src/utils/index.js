@@ -161,3 +161,44 @@ export const defaultState = () => {
     gameOver: false
   }
 }
+
+// Returns the next rotation for a shape
+// rotation can't exceed the last index of the the rotations for the given shape.
+export const nextRotation = (shape, rotation) => {
+  return (rotation + 1) % shapes[shape].length
+}
+
+export const canMoveTo = (shape, grid, x, y, rotation) => {
+  const currentShape = shapes[shape][rotation]
+  // Loop through all rows and cols of the **shape**
+  for (let row = 0; row < currentShape.length; row++) {
+      for (let col = 0; col < currentShape[row].length; col++) {
+          // If currentShape[row][col] == 1, => shape exists at that cell 
+          // If currentShape[row][col] == 0 => cell is empty
+          if (currentShape[row][col] !== 0) {
+              // x offset on grid
+              const proposedX = col + x
+              // y offset on grid
+              const proposedY = row + y
+              if (proposedY < 0) {
+                  continue
+              }
+              // Get the row on the grid
+              const possibleRow = grid[proposedY]
+              // Check row exists
+              if (possibleRow) {
+                  // Check if either:
+                  // (1) this column in the row is undefined => if it's off the edges, 
+                  // (2) not equal to 0 => already occupied by another shape
+                  if (possibleRow[proposedX] === undefined || possibleRow[proposedX] !== 0) {
+                      // undefined or not 0 (so it's occupied & we can't move here.)
+                      return false
+                  }
+              } else {
+                  return false
+              }
+          }
+      }
+  }
+  return true
+}
