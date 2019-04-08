@@ -4,6 +4,14 @@ import { pause, resume, restart } from '../actions'
 
 class ScoreBoard extends Component {
 
+  playPauseBtn() {
+    if (this.props.isRunning) {
+      return <i className="fas fa-pause"></i>
+    } else {
+      return <i className="fas fa-play"></i>
+    }
+  }
+
   render() {
     const { isRunning, score, resume, pause, restart, gameOver } = this.props
 
@@ -14,11 +22,13 @@ class ScoreBoard extends Component {
         <button className="score-board-button" onClick={(e) => {
           if (gameOver) { return }
           isRunning ? pause() : resume()
-        }}>{ isRunning ? <i className="fas fa-pause"></i> : <i className="fas fa-play"></i> }</button>
+        }}>{this.playPauseBtn()}</button>
 
         <button className="score-board-button" onClick={(e) => {
           restart()
-        }}><i className="fas fa-undo"></i></button>
+        }}>
+          <i className="fas fa-undo"></i>
+        </button>
 
       </div>
     )
