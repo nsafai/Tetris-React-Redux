@@ -15,7 +15,7 @@ class MessagePopup extends Component {
     // If the game is over, show the popup saying "Game Over"
     if (gameOver) {
       popupTitle = 'Game Over'
-      popupMsg = 'Think you can do better next time?'
+      popupMsg = 'Can you do better?'
       isHidden = ''
     }
 
