@@ -1,4 +1,4 @@
-# Tetris (in React and Redux)
+# Tetris (in React and Redux) - Web and Native OSX / Windows app via Electron
 
 This is a fully functional version of the original Tetris (1984) built in React and Redux, and can be run in any modern web browser. The goal is to eventually ship this app via Electron so it can be played on any device.
 
